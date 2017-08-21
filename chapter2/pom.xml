@@ -5,18 +5,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>Chapter2eureka-server</module>
-<!-- 		<module>chapter2service-ribbon</module>
+		<module>chapter2service-ribbon</module>
 		<module>service-hi2</module>
-		<module>service-hi3</module> -->
+		<module>service-hi3</module>
 	</modules>
     <groupId>com.forezp</groupId>
     <artifactId>chapter2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<parent>
-		<groupId>io.spring.platform</groupId>
-		<artifactId>platform-bom</artifactId>
-		<version>Brussels-SR1</version>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-parent</artifactId>
+		<version>Dalston.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
 	<properties>
@@ -52,32 +53,69 @@
 			<!-- 单元测试 -->
 			<!-- Tomcat 如果存在就不需要将servlet-api.jar、jsp-api.jar一起打包 -->
 			<dependency>
-				<groupId>com.csvw.sx.common.framework</groupId>
-				<artifactId>common-framework-service</artifactId>
-				<version>${common.framework.version}</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.jasig.cas.client</groupId>
+				<artifactId>cas-client-core</artifactId>
+				<version>3.4.1</version>
+			</dependency>
+			
+			<dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+	        <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui-login</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+			    <groupId>de.codecentric</groupId>
+			    <artifactId>spring-boot-admin-server-ui-activiti</artifactId>
+			    <version>${spring-boot-admin.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.csvw.sx.common.framework</groupId>
-				<artifactId>common-framework-api</artifactId>
-				<version>${common.framework.version}</version>	
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>slf4j-api</artifactId>
+			    <version>1.7.25</version>
+			</dependency>
+	        <dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.servlet.jsp</groupId>
-				<artifactId>jsp-api</artifactId>
-				<version>2.1</version>
-				<scope>provided</scope>
-			</dependency>
-		
-			<dependency>
-				<groupId>com.csvw.sx</groupId>
-				<artifactId>component-base</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.csvw.sx</groupId>
-				<artifactId>component-utils</artifactId>
-				<version>${component-utils.version}</version>
-			</dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>fastjson</artifactId>
+			    <version>${fastjson.version}</version>
+		    </dependency>
 			<dependency>
 				<groupId>com.forezp</groupId>
 				<artifactId>Chapter2eureka-server</artifactId>
@@ -97,15 +135,6 @@
 				<groupId>com.forezp</groupId>
 				<artifactId>service-hi3</artifactId>
 				<version>${component-utils.version}</version>
-			</dependency>
-					
-			<!-- spring cloud -->
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Dalston.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
